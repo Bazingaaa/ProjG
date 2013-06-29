@@ -75,6 +75,7 @@
     <ClInclude Include="AppDelegate.h" />
     <ClInclude Include="CocosExt\ADAnimate.h" />
     <ClInclude Include="CocosExt\ADParticleSystemCache.h" />
+    <ClInclude Include="CocosExt\ProjectionDelegate.h" />
     <ClInclude Include="Layers\LayerGameOver.h" />
     <ClInclude Include="Layers\LayerGaming.h" />
     <ClInclude Include="Layers\LayerLogo.h" />
@@ -93,6 +94,7 @@
     <ClCompile Include="AppDelegate.cpp" />
     <ClCompile Include="CocosExt\ADAnimate.cpp" />
     <ClCompile Include="CocosExt\ADParticleSystemCache.cpp" />
+    <ClCompile Include="CocosExt\ProjectionDelegate.cpp" />
     <ClCompile Include="Layers\LayerGameOver.cpp" />
     <ClCompile Include="Layers\LayerGaming.cpp" />
     <ClCompile Include="Layers\LayerLogo.cpp" />

@@ -60,6 +60,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     //script config
     CCLuaEngine* pEngine = CCLuaEngine::defaultEngine();
     CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
+	LuaHelper::openProjGLuaLibs();
+
     LuaHelper::s_executeFile( "main.lua");
 
     // turn on display FPS

@@ -11,13 +11,15 @@ function create()
 
 	function layer:setScreenOrigin( posX, posY, smooth )
 		local s = CCDirector:sharedDirector():getWinSize();
-		if smooth == true then
+		--[[if smooth == true then
 			
 			local moveAction = CCMoveTo:create( 1.0, ccp( s.width * 0.5 - posX + layer:getPositionX(), s.height * 0.5 - posY + layer:getPositionY() ) );
 			layer:runAction( moveAction );
 		else
 			layer:setPosition( s.width * 0.5 - posX, s.height * 0.5 - posY );
-		end
+		end]]
+
+		ProjectionView.setOrigin(posX, posY);
 	end
 
 	local function onTouch( eventType, x, y )

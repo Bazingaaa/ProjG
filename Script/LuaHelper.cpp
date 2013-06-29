@@ -1,11 +1,18 @@
 
 #include "Script/LuaHelper.h"
 
+#include "CocosExt/ProjectionDelegate.h"
+
 #include "script_support/CCScriptSupport.h"
 #include "CCLuaEngine.h"
 #include "cocoa/CCString.h"
 #include "cocoa/CCGeometry.h"
 #include "CCFileUtils.h"
+
+extern "C" {
+	#include "tolua++.h"
+	#include "tolua_fix.h"
+}
 
 
 namespace ProjG
@@ -125,6 +132,55 @@ lua_State* LuaHelper::s_getLuaState()
 	return pLuaState;
 
 }
+
+
+/* method: setOrigin of class  ProjectionView */
+#ifndef TOLUA_DISABLE_tolua_ProjectionView_setOrigin00
+static int tolua_ProjectionView_setOrigin00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+	 !tolua_isnumber( tolua_S, 1, 0, &tolua_err ) ||
+	 !tolua_isnumber( tolua_S, 2, 0, &tolua_err ) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  {
+	float fX = tolua_tonumber( tolua_S, 1, 0 );
+	float fY = tolua_tonumber( tolua_S, 2, 0 );
+    ProjectionDelegate::sharedPointer()->setOrigin( fX, fY );
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'sharedEngine'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+void LuaHelper::openProjGLuaLibs()
+{
+	CCLuaEngine *pLuaEngine = static_cast< CCLuaEngine* > ( CCScriptEngineManager::sharedManager()->getScriptEngine() );
+	lua_State *pLuaState = pLuaEngine->getLuaState();
+
+	tolua_open(pLuaState);
+	tolua_usertype(pLuaState,"ProjectionView");
+
+	tolua_module(pLuaState,NULL,0);
+	tolua_beginmodule(pLuaState,NULL);
+		tolua_cclass(pLuaState,"ProjectionView","ProjectionView","",NULL);
+		tolua_beginmodule(pLuaState,"ProjectionView");
+			tolua_function(pLuaState,"setOrigin",tolua_ProjectionView_setOrigin00);
+		tolua_endmodule(pLuaState);
+	tolua_endmodule(pLuaState);
+}
+
 
 }
 

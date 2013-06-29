@@ -22,8 +22,9 @@ public:
 	static std::string s_getStringVar( const char *pVarName );
 	static CCRect s_getRectVar( const char *pVarName );
 	static double s_getNumberVar( const char *pVarName );
-
 	static bool s_protectedCallFunc( int nNumParams, int nNumRets );
+
+	static void openProjGLuaLibs();
 
 	static lua_State* s_getLuaState();
 };
