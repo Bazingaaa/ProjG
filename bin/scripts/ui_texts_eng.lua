@@ -1,0 +1,13 @@
+TEXT_PLAY = "PLAY";
+TEXT_QUIT = "QUIT";
+
+TEXT_DIGGING_LVL = "DIG_LEVEL:";
+
+TEXT_GAME_OVER = "Game Over";
+TEXT_PLAY_AGAIN = "Again";
+TEXT_TO_MAIN_MENU = "MainMenu";
+
+TEXT_ON = "On";
+TEXT_OFF = "Off";
+TEXT_MUSIC = "Music";
+TEXT_SOUND = "Sound";
