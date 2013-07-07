@@ -20,14 +20,18 @@ public:
 	///<override
 	virtual void updateProjection();
 
-	void setOrigin( float fX, float fY );
+	void setCenter( float fX, float fY );
+
+	void resetCenter( );
+
+	CCPoint getCenter() const { return m_center; }
 
 	static ProjectionDelegate* sharedPointer();
 
 protected:
 
 	///<the origin point of projeciton view
-	CCPoint m_origin;
+	CCPoint m_center;
 };
 
 };

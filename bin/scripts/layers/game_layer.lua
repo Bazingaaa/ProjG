@@ -1,37 +1,40 @@
 module( "LayerGame", package.seeall );
 
-require( "scripts/game_objs/map/map")
+require( "scripts/game_objs/map/map" );
+require( "scripts/game_objs/entity/player" );
 
 function create()
 	local layer = CCLayer:create();
-
-	local map = Map.create();
-	map.init( layer );
-	map.generateRandom();
-
-	function layer:setScreenOrigin( posX, posY, smooth )
-		local s = CCDirector:sharedDirector():getWinSize();
-		--[[if smooth == true then
-			
-			local moveAction = CCMoveTo:create( 1.0, ccp( s.width * 0.5 - posX + layer:getPositionX(), s.height * 0.5 - posY + layer:getPositionY() ) );
-			layer:runAction( moveAction );
-		else
-			layer:setPosition( s.width * 0.5 - posX, s.height * 0.5 - posY );
-		end]]
-
-		ProjectionView.setOrigin(posX, posY);
-	end
-
+	local player;
+	
+	
 	local function onTouch( eventType, x, y )
 		if eventType == CCTOUCHBEGAN or eventType == CCTOUCHMOVE then
-			layer:setScreenOrigin( x, y, true );
+			local winSize = CCDirector:sharedDirector():getWinSize();
+			local screenCenter = CCPoint:new_local( winSize.width * 0.5, winSize.height * 0.5 );
+
+			local touchPosX = x - screenCenter.x;
+			local touchPosY = y - screenCenter.y;
+			local projViewCenter = ProjectionView.getCenter();
+			touchPosX = touchPosX + projViewCenter.x;
+			touchPosY = touchPosY + projViewCenter.y;
+			player.moveTo( touchPosX,touchPosY );
 		end
 	end
 
-	layer:setTouchEnabled( true );
-	layer:registerScriptTouchHandler( onTouch );
+	local function init()
+		local map = Map.create();
+		map.init( layer );
+		map.generateRandom();
 
-	layer:setScreenOrigin( 0.0, 0.0 );
+		layer:setTouchEnabled( true );
+		layer:registerScriptTouchHandler( onTouch );
+
+		player = Player.create( layer, "images/SMALL.PNG", ccp(0,0), 1.0, 0.0 );
+		player.moveTo( 0, 0 );
+	end
+
+	init();
 
 	return layer;
 end

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\cocos2d-2.0-x-2.0.3\scripting\lua\cocos2dx_support\CCLuaEngine.cpp">
+      <Filter>cocos2dx_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cocos2d-2.0-x-2.0.3\scripting\lua\cocos2dx_support\Cocos2dxLuaLoader.cpp">
+      <Filter>cocos2dx_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cocos2d-2.0-x-2.0.3\scripting\lua\cocos2dx_support\LuaCocos2d.cpp">
+      <Filter>cocos2dx_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cocos2d-2.0-x-2.0.3\scripting\lua\cocos2dx_support\tolua_fix.c">
+      <Filter>cocos2dx_support</Filter>
+    </ClCompile>
+    <ClCompile Include="win32_main.cpp" />
+    <ClCompile Include="AppDelegate.cpp" />
+    <ClCompile Include="Script\LuaHelper.cpp">
+      <Filter>Script</Filter>
+    </ClCompile>
+    <ClCompile Include="CocosExt\ADAnimate.cpp">
+      <Filter>CocosExt</Filter>
+    </ClCompile>
+    <ClCompile Include="CocosExt\ADParticleSystemCache.cpp">
+      <Filter>CocosExt</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Utilities\FiniteStateMachine.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Layers\LayerGameOver.cpp">
+      <Filter>Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="Layers\LayerGaming.cpp">
+      <Filter>Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="Layers\LayerLogo.cpp">
+      <Filter>Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="Layers\LayerMainMenu.cpp">
+      <Filter>Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="Layers\LayerOption.cpp">
+      <Filter>Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="CocosExt\ProjectionDelegate.cpp">
+      <Filter>CocosExt</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\cocos2d-2.0-x-2.0.3\scripting\lua\cocos2dx_support\CCLuaEngine.h">
+      <Filter>cocos2dx_support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cocos2d-2.0-x-2.0.3\scripting\lua\cocos2dx_support\Cocos2dxLuaLoader.h">
+      <Filter>cocos2dx_support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cocos2d-2.0-x-2.0.3\scripting\lua\cocos2dx_support\LuaCocos2d.h">
+      <Filter>cocos2dx_support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cocos2d-2.0-x-2.0.3\scripting\lua\cocos2dx_support\tolua_fix.h">
+      <Filter>cocos2dx_support</Filter>
+    </ClInclude>
+    <ClInclude Include="win32_main.h" />
+    <ClInclude Include="AppDelegate.h" />
+    <ClInclude Include="Script\LuaHelper.h">
+      <Filter>Script</Filter>
+    </ClInclude>
+    <ClInclude Include="CocosExt\ADAnimate.h">
+      <Filter>CocosExt</Filter>
+    </ClInclude>
+    <ClInclude Include="CocosExt\ADParticleSystemCache.h">
+      <Filter>CocosExt</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Utilities\FiniteStateMachine.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Layers\LayerGameOver.h">
+      <Filter>Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="Layers\LayerGaming.h">
+      <Filter>Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="Layers\LayerLogo.h">
+      <Filter>Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="Layers\LayerMainMenu.h">
+      <Filter>Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="Layers\LayerOption.h">
+      <Filter>Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="CocosExt\ProjectionDelegate.h">
+      <Filter>CocosExt</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="cocos2dx_support">
+      <UniqueIdentifier>{dd27c765-273d-4c20-94bb-fb5a1c1e89b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script">
+      <UniqueIdentifier>{3831d761-6650-4346-afa9-378113bf4401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CocosExt">
+      <UniqueIdentifier>{6829da1f-78a7-4f56-90ec-cfcc53d0370f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{d72a1cfb-dc73-4c84-8528-31a5eae8806c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layers">
+      <UniqueIdentifier>{70a96d5c-19ac-4c55-a068-6fb71f56014a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

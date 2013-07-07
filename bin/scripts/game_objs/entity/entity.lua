@@ -15,6 +15,10 @@ function create( rootNode, fileName, pos, scale, rotate )
 		sprite:setPosition( pos );
 	end
 
+	function entity.getPos()
+		return sprite:getPosition();
+	end
+
 	function entity.setScale( scale )
 		sprite:setScale(scale);
 	end
@@ -22,6 +26,15 @@ function create( rootNode, fileName, pos, scale, rotate )
 	function entity.setRotate( rotate )
 		sprite:setRotation( rotate );
 	end
+
+	function entity.moveTo( destPosX, destPosY, duration )
+		duration = duration or 1.0;
+
+		local destPos = CCPoint:new_local( destPosX, destPosY );
+		local moveAction = CCMoveTo:create( duration, destPos );
+		sprite:runAction( moveAction );
+	end
+
 
 	entity.load( fileName );
 	entity.setPos( pos );

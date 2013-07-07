@@ -17,7 +17,7 @@ ProjectionDelegate* ProjectionDelegate::sharedPointer()
 }
 
 ProjectionDelegate::ProjectionDelegate()
-: m_origin( 0.0f, 0.0f )
+: m_center( 0.0f, 0.0f )
 {
 }
 
@@ -28,7 +28,6 @@ ProjectionDelegate::~ProjectionDelegate()
 void ProjectionDelegate::updateProjection()
 {
 	CCSize size = CCDirector::sharedDirector()->getWinSizeInPixels();
-	CCSize sizePoint = CCDirector::sharedDirector()->getWinSize();
 
 	float zeye = CCDirector::sharedDirector()->getZEye();
 
@@ -46,19 +45,26 @@ void ProjectionDelegate::updateProjection()
 	kmGLMatrixMode(KM_GL_MODELVIEW);
 	kmGLLoadIdentity();
 	kmVec3 eye, center, up;
-	kmVec3Fill( &eye, m_origin.x, m_origin.y, zeye );
-	kmVec3Fill( &center, m_origin.x, m_origin.y, 0.0f );
+	kmVec3Fill( &eye, m_center.x, m_center.y, zeye );
+	kmVec3Fill( &center, m_center.x, m_center.y, 0.0f );
 	kmVec3Fill( &up, 0.0f, 1.0f, 0.0f);
 	kmMat4LookAt(&matrixLookup, &eye, &center, &up);
 	kmGLMultMatrix(&matrixLookup);
 }
 
-void ProjectionDelegate::setOrigin( float fX, float fY )
+void ProjectionDelegate::setCenter( float fX, float fY )
 {
-	m_origin.x = fX;
-	m_origin.y = fY;
+	m_center.x = fX;
+	m_center.y = fY;
 
 	updateProjection();
+}
+
+void ProjectionDelegate::resetCenter( )
+{
+	CCSize sizePoint = CCDirector::sharedDirector()->getWinSize();
+	setCenter( sizePoint.width * 0.5f, sizePoint.height * 0.5f );
+
 }
 
 };

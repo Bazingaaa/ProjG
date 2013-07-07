@@ -134,9 +134,9 @@ lua_State* LuaHelper::s_getLuaState()
 }
 
 
-/* method: setOrigin of class  ProjectionView */
-#ifndef TOLUA_DISABLE_tolua_ProjectionView_setOrigin00
-static int tolua_ProjectionView_setOrigin00(lua_State* tolua_S)
+/* method: setCenter of class  ProjectionView */
+#ifndef TOLUA_DISABLE_tolua_ProjectionView_setCenter00
+static int tolua_ProjectionView_setCenter00(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
  tolua_Error tolua_err;
@@ -152,13 +152,68 @@ static int tolua_ProjectionView_setOrigin00(lua_State* tolua_S)
   {
 	float fX = tolua_tonumber( tolua_S, 1, 0 );
 	float fY = tolua_tonumber( tolua_S, 2, 0 );
-    ProjectionDelegate::sharedPointer()->setOrigin( fX, fY );
+    ProjectionDelegate::sharedPointer()->setCenter( fX, fY );
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setCenter'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: resetCenter of class  ProjectionView */
+#ifndef TOLUA_DISABLE_tolua_ProjectionView_resetCenter00
+static int tolua_ProjectionView_resetCenter00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isnoobj(tolua_S,1,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  {
+    ProjectionDelegate::sharedPointer()->resetCenter( );
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'resetCenter'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: getCenter of class  ProjectionView */
+#ifndef TOLUA_DISABLE_tolua_ProjectionView_getCenter00
+static int tolua_ProjectionView_getCenter00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isnoobj(tolua_S,1,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  {
+    CCPoint center = ProjectionDelegate::sharedPointer()->getCenter( );
+	void* tolua_obj = Mtolua_new((CCPoint)(center));
+    tolua_pushusertype(tolua_S,tolua_obj,"CCPoint");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
   }
  }
  return 1;
 #ifndef TOLUA_RELEASE
  tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'sharedEngine'.",&tolua_err);
+ tolua_error(tolua_S,"#ferror in function 'resetCenter'.",&tolua_err);
  return 0;
 #endif
 }
@@ -176,7 +231,9 @@ void LuaHelper::openProjGLuaLibs()
 	tolua_beginmodule(pLuaState,NULL);
 		tolua_cclass(pLuaState,"ProjectionView","ProjectionView","",NULL);
 		tolua_beginmodule(pLuaState,"ProjectionView");
-			tolua_function(pLuaState,"setOrigin",tolua_ProjectionView_setOrigin00);
+			tolua_function(pLuaState,"setCenter",tolua_ProjectionView_setCenter00);
+			tolua_function(pLuaState,"resetCenter", tolua_ProjectionView_resetCenter00 );
+			tolua_function(pLuaState,"getCenter", tolua_ProjectionView_getCenter00 );
 		tolua_endmodule(pLuaState);
 	tolua_endmodule(pLuaState);
 }
