@@ -43,3 +43,6 @@ function create( rootNode, fileName, pos, scale, rotate )
 
 	return entity;
 end
+
+
+

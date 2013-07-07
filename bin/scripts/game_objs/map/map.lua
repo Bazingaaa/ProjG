@@ -11,7 +11,7 @@ function create()
 		local entity = Entity.create( rootNode, fileName, pos, scale, rotate );
 	end
 
-	map.size = {width = 1000, height = 1000};
+	map.size = {width = 10000, height = 10000};
 	map.origin = {x = 0, y = 0};
 
 	function map.load( fileName )
@@ -27,7 +27,7 @@ function create()
 	function map.generateRandom()
 		local x,y;
 
-		for i=0, 40 do
+		for i=0, 400 do
 			x = math.random( map.origin.x - map.size.width * 0.5, map.origin.x + map.size.width * 0.5 );
 			y = math.random( map.origin.y - map.size.height * 0.5, map.origin.y + map.size.height * 0.5 );
 

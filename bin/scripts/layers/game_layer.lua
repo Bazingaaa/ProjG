@@ -9,7 +9,9 @@ function create()
 	
 	
 	local function onTouch( eventType, x, y )
-		if eventType == CCTOUCHBEGAN or eventType == CCTOUCHMOVE then
+		local switch = false;
+		if eventType == CCTOUCHBEGAN or eventType == CCTOUCHMOVED then
+			
 			local winSize = CCDirector:sharedDirector():getWinSize();
 			local screenCenter = CCPoint:new_local( winSize.width * 0.5, winSize.height * 0.5 );
 
@@ -20,6 +22,8 @@ function create()
 			touchPosY = touchPosY + projViewCenter.y;
 			player.moveTo( touchPosX,touchPosY );
 		end
+
+		return true;
 	end
 
 	local function init()
